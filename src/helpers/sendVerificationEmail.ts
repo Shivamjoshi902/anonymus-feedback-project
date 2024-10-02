@@ -9,8 +9,6 @@ export async function sendVerificationEmail(
     email : string,
     otp : string
 ) : Promise<apiResponse>{
-    console.log('HERE :', userName);
-    console.log('HERE :',otp);
     try {
         const {data, error} = await resend.emails.send({
             from: 'sj8393006090@gmail.com',
