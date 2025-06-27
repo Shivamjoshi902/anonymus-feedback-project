@@ -21,7 +21,7 @@ import { Loader2 } from "lucide-react"
 import Link from "next/link"
 
 
-export default function signupForm(){
+export default function SignupForm(){
   const [userName, setUserName] = useState('')
   const [isCheckingUserName, setIsCheckingUserName] = useState(false)
   const [isSubmitting, setIsSubmitting] = useState(false)

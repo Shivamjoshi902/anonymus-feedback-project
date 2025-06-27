@@ -17,7 +17,7 @@ import { Input } from '@/components/ui/input';
 import React from 'react'
 import { verifyValidation } from "@/validationSchemas/verifyValidation"
 
-function verificationPage() {
+function VerificationPage() {
     const params = useParams<{userName : string}>()
     const router = useRouter()
     const {toast} = useToast();
@@ -80,4 +80,4 @@ function verificationPage() {
   )
 }
 
-export default verificationPage
+export default VerificationPage

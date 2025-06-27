@@ -17,7 +17,7 @@ import Link from "next/link"
 import { signInValidation } from "@/validationSchemas/signInValidation"
 import { signIn } from 'next-auth/react';
 
-export default function signupForm(){
+export default function SignupForm(){
 
   const router = useRouter()
   const { toast } = useToast()
