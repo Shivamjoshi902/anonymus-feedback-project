@@ -16,7 +16,7 @@ import { useSession } from 'next-auth/react'
 import React, { useCallback, useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 
-const dashboard = () => {
+const Dashboard = () => {
   const [messages, setMessages] = useState<Message[]>([])
   const [isLoading, setIsLoading] = useState(false)
   const [isSwitchLoading, setIsSwitchLoading] = useState(false)
@@ -193,4 +193,4 @@ const dashboard = () => {
     );
 }
 
-export default dashboard
+export default Dashboard
