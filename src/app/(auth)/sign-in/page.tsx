@@ -16,6 +16,7 @@ import { Input } from '@/components/ui/input';
 import Link from "next/link"
 import { signInValidation } from "@/validationSchemas/signInValidation"
 import { signIn } from 'next-auth/react';
+import { FcGoogle } from "react-icons/fc"; // Google logo
 
 export default function SignInForm(){
 
@@ -91,6 +92,15 @@ export default function SignInForm(){
               </Button>
             </form>
           </Form>
+          <Button
+            variant="outline"
+            className="flex items-center justify-center w-full gap-2 border-gray-300 hover:bg-gray-100"
+            onClick={async () => await signIn("google", { callbackUrl: "/" })}
+          >
+            <FcGoogle className="w-5 h-5" />
+            Sign in with Google
+          </Button>
+
         </div>
       </div>
     );

@@ -1,7 +1,7 @@
 import mongoose,{ Schema, Document, ObjectId } from "mongoose";
 
 export interface Message extends Document{
-    content : String,
+    content : string,
     createdAt : Date,
     _id : string
 } 
@@ -21,10 +21,10 @@ const MessageSchema : Schema<Message> = new Schema(
 )
 
 export interface User extends Document{
-    userName : String,
-    email : String,
+    userName : string,
+    email : string,
     password : string,
-    verifyToken : String,
+    verifyToken : string,
     verifyTokenExpiry : Date,
     isAcceptingMessage : Boolean,
     isVerified : Boolean,
@@ -69,5 +69,7 @@ const UserSchema : Schema<User> = new Schema(
     }
 )
 
-const userModel = mongoose.models.User as mongoose.Model<User> || mongoose.model<User>("User",UserSchema)
+const userModel: mongoose.Model<User> = 
+    mongoose.models.User || mongoose.model<User>("User", UserSchema);
+
 export default userModel;
