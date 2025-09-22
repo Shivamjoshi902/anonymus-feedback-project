@@ -11,7 +11,6 @@ export async function GET(req : NextRequest){
 
     const session = await getServerSession(authOptions);
     const user : User = session?.user
-    console.log('session in get-msg',user);
     
     
 

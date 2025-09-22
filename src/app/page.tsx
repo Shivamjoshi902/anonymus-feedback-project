@@ -18,7 +18,6 @@ export default async function Home() {
 
   const data = await response.json();
   const messages = data.messages
-  console.log("messages send by get-msg", data.messages);
 
   return (
     <>
