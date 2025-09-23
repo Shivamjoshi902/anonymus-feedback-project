@@ -2,8 +2,8 @@
 import { getServerSession } from "next-auth";
 import { authOptions } from "./api/auth/[...nextauth]/options";
 import MessagesCarousel from "@/components/MessagesCarousel";
-import axios from "axios";
 import { cookies } from "next/headers";
+import Dashboard from '@/components/Dashboard'
 
 export default async function Home() {
   const session = await getServerSession(authOptions);
@@ -32,7 +32,10 @@ export default async function Home() {
         </section>
 
         {session?.user ? (
-          <MessagesCarousel messages={messages} />
+          <>
+            <MessagesCarousel messages={messages} />
+            <Dashboard/>
+          </>
         ) : (
           <p className="text-gray-400">Please login to view feedback messages.</p>
         )}

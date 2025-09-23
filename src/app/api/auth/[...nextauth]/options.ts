@@ -4,6 +4,7 @@ import dbConnect from "@/dbConnection/dbConnect";
 import userModel from "@/models/user.model";
 import bcrypt from "bcryptjs"
 import GoogleProvider from "next-auth/providers/google";
+import { nanoid } from "nanoid";
 
 
 export const authOptions : NextAuthOptions = {
@@ -75,9 +76,13 @@ export const authOptions : NextAuthOptions = {
                 user.isAcceptingMessage = existingUser.isAcceptingMessage ?? true;
             } else {
                 // Create new user if none exists
+
+                let baseUsername = profile?.name || user.email?.split("@")[0];
+                baseUsername = `${baseUsername}_${nanoid(5)}`;
+                
                 const newUser = await userModel.create({
                     email: user.email,
-                    userName: profile?.name || user.email?.split("@")[0],
+                    userName: baseUsername,
                     isVerified: true,               // mark as verified
                     isAcceptingMessage: true,
                     messages: [],
